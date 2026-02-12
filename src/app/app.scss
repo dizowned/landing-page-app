@@ -1,0 +1,20 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 5vh;
+    background-color: #409271;
+    border-radius: 1px;
+    box-shadow: 0 2px 4px rgba(217, 11, 11, 0.603);
+    position: relative;
+
+}
+.app-logo {
+    width: 30px;
+    height: 20px;
+    margin-bottom: 0px;
+    top: 15px;
+}
+.app-header {
+    text-align: center;
+    top: 0px;
+}

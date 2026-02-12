@@ -1,0 +1,25 @@
+.main-page-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 10px;
+}
+
+.main-page-table{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.device-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(217, 11, 11, 0.603);
+}
