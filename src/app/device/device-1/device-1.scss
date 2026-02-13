@@ -1,0 +1,28 @@
+mat-accordion {
+  width: 100%;
+}
+
+mat-expansion-panel {
+  margin-bottom: 8px;
+}
+
+mat-panel-title {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+mat-panel-description {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.panel-content {
+  padding: 10px;
+  min-height: 50px;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+mat-card {
+  margin-top: 16px;
+}
