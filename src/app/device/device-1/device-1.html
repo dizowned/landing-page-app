@@ -8,7 +8,15 @@
         {{ name() }}
       </mat-panel-title>
       <mat-panel-description>
-        Status: {{ status() }}
+        <span class="status-container">
+          @if (isActive()) {
+            <mat-icon class="status-icon active">check_circle</mat-icon>
+            <span>Status: Active</span>
+          } @else {
+            <mat-icon class="status-icon inactive">highlight_off</mat-icon>
+            <span>Status: Inactive</span>
+          }
+        </span>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
