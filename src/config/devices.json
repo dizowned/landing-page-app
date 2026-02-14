@@ -1,0 +1,109 @@
+{
+  "device_groups": [
+    {
+      "name": "group1",
+      "devices": [
+        {
+          "name": "Device 1",
+          "description": "This is the first device.",
+          "url": "http://device-1",
+          "status": "active"
+        },
+        {
+          "name": "Device 2",
+          "description": "This is the second device.",
+          "url": "http://device-2",
+          "status": "inactive"
+        },
+        {
+          "name": "Device 3",
+          "description": "This is the third device.",
+          "url": "http://device-3",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "name": "group2",
+      "devices": [
+        {
+          "name": "Device 4",
+          "description": "This is the first device.",
+          "url": "http://device-4",
+          "status": "active"
+        },
+        {
+          "name": "Device 5",
+          "description": "This is the second device.",
+          "url": "http://device-5",
+          "status": "inactive"
+        }
+      ]
+    },
+    {
+      "name": "group3",
+      "devices": [
+        {
+          "name": "Device 6",
+          "description": "This is the third device.",
+          "url": "http://device-6",
+          "status": "active"
+        },
+        {
+          "name": "Device 7",
+          "description": "This is the first device.",
+          "url": "http://device-7",
+          "status": "inactive"
+        },
+        {
+          "name": "Device 8",
+          "description": "This is the second device.",
+          "url": "http://device-8",
+          "status": "active"
+        },
+        {
+          "name": "Device 9",
+          "description": "This is the third device.",
+          "url": "http://device-9",
+          "status": "inactive"
+        },
+        {
+          "name": "Device 10",
+          "description": "This is the first device.",
+          "url": "http://device-10",
+          "status": "active"
+        },
+        {
+          "name": "Device 11",
+          "description": "This is the second device.",
+          "url": "http://device-11",
+          "status": "inactive"
+        },
+        {
+          "name": "Device 12",
+          "description": "This is the third device.",
+          "url": "http://device-12",
+          "status": "active"
+        },
+        {
+          "name": "Device 13",
+          "description": "This is the first device.",
+          "url": "http://device-13",
+          "status": "inactive"
+        },
+        {
+          "name": "Device 14",
+          "description": "This is the second device.",
+          "url": "http://device-14",
+          "status": "active"
+        },
+        {
+          "name": "Device 15",
+          "description": "This is the third device.",
+          "url": "http://device-15",
+          "status": "inactive"
+        }
+      ]
+    }
+  ]
+}

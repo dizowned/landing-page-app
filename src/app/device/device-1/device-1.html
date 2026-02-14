@@ -5,10 +5,10 @@
     [(expanded)]="panelOpen">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Device 1a
+        {{ name() }}
       </mat-panel-title>
       <mat-panel-description>
-        Device Subtitle
+        Status: {{ status() }}
       </mat-panel-description>
     </mat-expansion-panel-header>
 
@@ -16,11 +16,12 @@
       <mat-card>
         <mat-card-content>
           <p>
-            Device 1a description goes here.
+            {{ description() }}
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>Info</button>
+          <a mat-button href="{{ url() }}" target="_blank" rel="noopener">GO!</a>
+          <button mat-button>More Info</button>
         </mat-card-actions>
       </mat-card>
     </div>

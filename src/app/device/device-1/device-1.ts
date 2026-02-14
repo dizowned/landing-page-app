@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core'
+import { input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
@@ -15,6 +16,10 @@ import {MatButtonModule} from '@angular/material/button';
 export class Device_1 {
   panelOpen = false;
   @Output() drawerStateChange = new EventEmitter<boolean>();
+  name = input<string>('Device Name');
+  status = input<string>('Device status');
+  url = input<string>('http://www.example.com');
+  description = input<string>('Device description goes here.');
 
   onPanelToggle(opened: boolean) {
     this.panelOpen = opened;
