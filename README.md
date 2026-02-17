@@ -1,59 +1,108 @@
-# LandingPageApp
+# Landing Page App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+A device dashboard landing page built with **Angular 20** and **Angular Material**. Displays devices organized into groups, each rendered as an expandable card showing its name, status, description, and a quick-launch link.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Device groups** — Devices are organized into named groups, configured via a JSON file.
+- **Expandable device cards** — Each device uses a Material accordion panel that reveals a description and action buttons when expanded.
+- **Status indicators** — Devices show an active/inactive status with corresponding Material icons.
+- **Server-side rendering** — Supports SSR via Angular SSR and Express.
+- **Configurable** — Device data is driven by [`src/config/devices.json`](src/config/devices.json), making it easy to add or modify devices and groups without changing code.
+
+## Tech Stack
+
+- Angular 20 with standalone components
+- Angular Material & CDK
+- Tailwind CSS (PostCSS plugin) + SCSS
+- Express (SSR)
+- Karma & Jasmine (testing)
+
+## Project Structure
+
+```
+src/
+├── config/
+│   └── devices.json          # Device/group configuration
+├── app/
+│   ├── app.ts                # Root component
+│   ├── app.routes.ts         # Route definitions
+│   ├── main-page/            # Main dashboard page
+│   │   ├── main-page.ts
+│   │   ├── main-page.html
+│   │   └── main-page.scss
+│   └── device/
+│       ├── device-1/         # Expandable device card component
+│       └── device-2/         # Alternate device component (placeholder)
+└── styles.scss               # Global styles
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v20+)
+- Angular CLI v20
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Development server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`. The app reloads automatically on source changes.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts are written to `dist/`.
 
-## Running unit tests
+### Run with SSR
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+```bash
+npm run serve:ssr:landing-page-app
+```
+
+### Run tests
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Configuration
 
-For end-to-end (e2e) testing, run:
+Edit [`src/config/devices.json`](src/config/devices.json) to define device groups and devices:
 
-```bash
-ng e2e
+```json
+{
+  "device_groups": [
+    {
+      "name": "group1",
+      "devices": [
+        {
+          "name": "Device 1",
+          "description": "This is the first device.",
+          "url": "http://device-1",
+          "status": true
+        }
+      ]
+    }
+  ]
+}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+| Field         | Type    | Description                          |
+| ------------- | ------- | ------------------------------------ |
+| `name`        | string  | Display name for the device          |
+| `description` | string  | Description shown in the card body   |
+| `url`         | string  | Link opened by the "GO!" button      |
+| `status`      | boolean | `true` = Active, `false` = Inactive  |
