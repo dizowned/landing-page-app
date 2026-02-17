@@ -2,6 +2,11 @@
   <table class="main-page-table">
     <tbody>
       @for (device_group of device_list.device_groups; track device_group.name) {
+        <tr>
+        <td class="device-group-name">
+          <h2>Device: {{ device_group.name }}</h2>
+        </td>
+        </tr>
       <tr class="device-container">
         @for(device of device_group.devices; track device.name) {
         <td>
