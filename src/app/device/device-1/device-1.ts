@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, computed } from '@angular/core'
+import { Component, computed, output } from '@angular/core'
 import { input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -16,7 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class Device_1 {
   panelOpen = false;
-  @Output() drawerStateChange = new EventEmitter<boolean>();
+  drawerStateChange = output<boolean>();
   name = input<string>('Device Name');
   status = input<boolean>(false);
   url = input<string>('http://www.example.com');
