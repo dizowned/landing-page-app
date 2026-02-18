@@ -6,7 +6,8 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 
 ## Features
 
-- **Device groups** — Devices are organized into named groups, configured via a JSON file.
+- **Branded header** — Displays a logo and welcome banner at the top of the page.
+- **Device groups** — Devices are organized into named groups with a configurable component type, all driven by a JSON file.
 - **Expandable device cards** — Each device uses a Material accordion panel that reveals a description and action buttons when expanded.
 - **Status indicators** — Devices show an active/inactive status with corresponding Material icons.
 - **Server-side rendering** — Supports SSR via Angular SSR and Express.
@@ -23,11 +24,14 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 ## Project Structure
 
 ```
+public/
+└── assets/
+    └── images/               # Static images (logo, etc.)
 src/
 ├── config/
 │   └── devices.json          # Device/group configuration
 ├── app/
-│   ├── app.ts                # Root component
+│   ├── app.ts                # Root component (header + logo)
 │   ├── app.routes.ts         # Route definitions
 │   ├── main-page/            # Main dashboard page
 │   │   ├── main-page.ts
@@ -89,6 +93,7 @@ Edit [`src/config/devices.json`](src/config/devices.json) to define device group
   "device_groups": [
     {
       "name": "group1",
+      "type": "device-1",
       "devices": [
         {
           "name": "Device 1",
@@ -101,6 +106,15 @@ Edit [`src/config/devices.json`](src/config/devices.json) to define device group
   ]
 }
 ```
+
+**Group fields:**
+
+| Field    | Type   | Description                                      |
+| -------- | ------ | ------------------------------------------------ |
+| `name`   | string | Display name for the group                       |
+| `type`   | string | Component type used to render devices in the group (e.g. `device-1`) |
+
+**Device fields:**
 
 | Field         | Type    | Description                          |
 | ------------- | ------- | ------------------------------------ |
