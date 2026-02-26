@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Device_1 } from '../device/device-1/device-1';
 import device_list from '../../config/devices.json';
+import { DeviceFilterService } from '../services/device-filter.service';
 
 @Component({
   selector: 'MainPage',
@@ -11,7 +12,16 @@ import device_list from '../../config/devices.json';
 export class MainPage {
   anyDrawerOpen = false;
   private openDrawersCount = 0;
-  device_list = device_list;
+
+  private filterService = inject(DeviceFilterService);
+
+  filteredDeviceGroups = computed(() => {
+    const filter = this.filterService.selectedFilter();
+    if (filter === 'All') {
+      return device_list.device_groups;
+    }
+    return device_list.device_groups.filter((group) => group.type === filter);
+  });
 
   onDrawerStateChange(isOpen: boolean) {
     if (isOpen) {

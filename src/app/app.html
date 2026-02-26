@@ -1,7 +1,33 @@
-<div class="app-container">
+<mat-toolbar class="app-toolbar">
+  <button mat-icon-button (click)="toggleSidenav()" aria-label="Toggle navigation">
+    <mat-icon>menu</mat-icon>
+  </button>
   <img src="assets/images/landing-page-logo.png" alt="Landing Page Logo" class="app-logo">
-  <header class="app-header">
-    <h1 center>Welcome to the Landing Page Application !!!!</h1>
-  </header>
- </div>
-<router-outlet />
+  <span class="app-title">Welcome to the Landing Page Application !!!!</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="sidenavOpen()" class="app-sidenav">
+    <mat-nav-list>
+      <a mat-list-item
+        (click)="selectFilter('All')"
+        [class.active-filter]="selectedFilter() === 'All'">
+        <mat-icon matListItemIcon>devices</mat-icon>
+        <span matListItemTitle>All</span>
+      </a>
+      <mat-divider></mat-divider>
+      @for (type of deviceTypes(); track type) {
+        <a mat-list-item
+          (click)="selectFilter(type)"
+          [class.active-filter]="selectedFilter() === type">
+          <mat-icon matListItemIcon>developer_board</mat-icon>
+          <span matListItemTitle>{{ type }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>

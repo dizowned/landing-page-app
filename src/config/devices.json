@@ -2,7 +2,7 @@
   "device_groups": [
     {
       "name": "group1",
-      "type": "device-1",
+      "type": "Sensors",
       "devices": [
         {
           "name": "Device 1",
@@ -26,7 +26,7 @@
     },
     {
       "name": "group2",
-      "type": "device-1",
+      "type": "Controllers",
       "devices": [
         {
           "name": "Device 4",
@@ -44,7 +44,7 @@
     },
     {
       "name": "group3",
-      "type": "device-1",
+      "type": "Actuators",
       "devices": [
         {
           "name": "Device 6",
