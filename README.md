@@ -14,6 +14,7 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 - **Status indicators** — Devices show an active/inactive status with corresponding Material icons.
 - **Server-side rendering** — Supports SSR via Angular SSR and Express.
 - **Configurable** — Device data is driven by [`src/config/devices.json`](src/config/devices.json), making it easy to add or modify devices and groups without changing code.
+- **Fully self-contained assets** — All fonts (Roboto, Material Icons) and images are bundled locally — no external CDN requests at runtime.
 
 ## Tech Stack
 
@@ -28,23 +29,27 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 ```
 public/
 └── assets/
-    └── images/               # Static images (logo, etc.)
+    ├── fonts/
+    │   ├── roboto/              # Roboto woff2 files (latin + latin-ext)
+    │   └── material-icons/      # Material Icons woff2
+    └── images/                  # Static images (logo, etc.)
 src/
+├── fonts.css                     # Local @font-face declarations
 ├── config/
-│   └── devices.json          # Device/group configuration
+│   └── devices.json              # Device/group configuration
 ├── app/
-│   ├── app.ts                # Root component (toolbar + sidenav shell)
-│   ├── app.routes.ts         # Route definitions
+│   ├── app.ts                    # Root component (toolbar + sidenav shell)
+│   ├── app.routes.ts             # Route definitions
 │   ├── services/
 │   │   └── device-filter.service.ts  # Shared filter state (signal-based)
-│   ├── main-page/            # Main dashboard page
+│   ├── main-page/                # Main dashboard page
 │   │   ├── main-page.ts
 │   │   ├── main-page.html
 │   │   └── main-page.scss
 │   └── device/
-│       ├── device-1/         # Expandable device card component
-│       └── device-2/         # Alternate device component (placeholder)
-└── styles.scss               # Global styles
+│       ├── device-1/             # Expandable device card component
+│       └── device-2/             # Alternate device component (placeholder)
+└── styles.scss                   # Global styles
 ```
 
 ## Getting Started
