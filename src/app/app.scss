@@ -1,23 +1,60 @@
 //@use 'tailwindcss';
 
-.app-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 5vh;
-    background-color: #409271;
-    border-radius: 1px;
-    box-shadow: 0 2px 4px rgba(217, 11, 11, 0.603);
-    position: relative;
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
+.app-toolbar {
+  background-color: #409271;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  button {
+    color: white;
+  }
 }
+
 .app-logo {
-    width: 30px;
-    height: 20px;
-    margin-bottom: 0px;
-    margin-left: 10px;
-    top: 15px;
+  width: 30px;
+  height: 20px;
+  margin: 0 12px;
 }
-.app-header {
-    text-align: center;
-    top: 0px;
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidenav-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-sidenav {
+  width: 240px;
+  background-color: var(--mat-sys-surface-container);
+  border-right: 1px solid var(--mat-sys-outline-variant);
+
+  mat-nav-list {
+    padding-top: 8px;
+  }
+
+  .active-filter {
+    background-color: var(--mat-sys-secondary-container);
+    color: var(--mat-sys-on-secondary-container);
+    border-radius: 0 24px 24px 0;
+    font-weight: 500;
+  }
+}
+
+.sidenav-content {
+  overflow-y: auto;
 }
