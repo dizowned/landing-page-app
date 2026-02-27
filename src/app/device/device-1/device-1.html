@@ -4,20 +4,16 @@
     (closed)="onPanelToggle(false)"
     [(expanded)]="panelOpen">
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ name() }}
-      </mat-panel-title>
-      <mat-panel-description>
-        <span class="status-container">
+      <mat-panel-title class="status-container">
+         <span >
           @if (isActive()) {
             <mat-icon class="status-icon active">check_circle</mat-icon>
-            <span>Status: Active</span>
           } @else {
             <mat-icon class="status-icon inactive">highlight_off</mat-icon>
-            <span>Status: Inactive</span>
           }
         </span>
-      </mat-panel-description>
+        {{ name() }}
+      </mat-panel-title>
     </mat-expansion-panel-header>
 
     <div class="panel-content">
