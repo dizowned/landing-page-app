@@ -9,7 +9,7 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 - **Side navigation with device-type filtering** — A collapsible side nav lists all unique device types extracted from the config. Selecting a type filters the dashboard to show only matching groups; the default "All" filter shows everything.
 - **Hamburger menu toggle** — A toolbar hamburger icon opens and closes the side navigation.
 - **Branded toolbar** — Displays a logo and welcome title in a sticky Material toolbar.
-- **Device groups** — Devices are organized into named groups with a configurable component type, all driven by a JSON file.
+- **Device groups** — Devices are organized into named groups with a configurable device type, all driven by a JSON file.
 - **Expandable device cards** — Each device uses a Material accordion panel that reveals a description and action buttons when expanded.
 - **Status indicators** — Devices show an active/inactive status with corresponding Material icons.
 - **Server-side rendering** — Supports SSR via Angular SSR and Express.
