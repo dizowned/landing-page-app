@@ -1,5 +1,5 @@
 import { Injectable, signal, computed } from '@angular/core';
-import deviceList from '../../config/devices.json';
+import deviceList from '../../../public/assets/config/devices.json';
 
 @Injectable({
   providedIn: 'root',

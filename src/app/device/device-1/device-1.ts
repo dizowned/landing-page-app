@@ -19,7 +19,7 @@ export class Device_1 {
   drawerStateChange = output<boolean>();
   name = input<string>('Device Name');
   status = input<boolean>(false);
-  url = input<string>('http://www.example.com');
+  url = input<string>('http://www.device-url.com');
   description = input<string>('Default Description');
 
   isActive = computed(() => {

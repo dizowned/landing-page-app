@@ -13,8 +13,10 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 - **Expandable device cards** — Each device uses a Material accordion panel that reveals a description and action buttons when expanded.
 - **Status indicators** — Devices show an active/inactive status with corresponding Material icons.
 - **Server-side rendering** — Supports SSR via Angular SSR and Express.
-- **Configurable** — Device data is driven by [`src/config/devices.json`](src/config/devices.json), making it easy to add or modify devices and groups without changing code.
-- **Fully self-contained assets** — All fonts (Roboto, Material Icons) and images are bundled locally — no external CDN requests at runtime.
+- **Runtime device loading** — Device configuration is fetched via HTTP from `assets/config/devices.json` at runtime, with a bundled JSON fallback, allowing updates without rebuilding.
+- **Typed data model** — TypeScript interfaces (`Devices`, `DeviceGroup`, `Device`) ensure type safety across services and components.
+- **Configurable** — Device data is driven by [`public/assets/config/devices.json`](public/assets/config/devices.json), making it easy to add or modify devices and groups without changing code.
+- **Fully self-contained assets** — All fonts (Roboto, Material Icons), images, and config are bundled locally — no external CDN requests at runtime.
 
 ## Tech Stack
 
@@ -29,19 +31,22 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 ```
 public/
 └── assets/
+    ├── config/
+    │   └── devices.json          # Device/group configuration (served at runtime)
     ├── fonts/
-    │   ├── roboto/              # Roboto woff2 files (latin + latin-ext)
-    │   └── material-icons/      # Material Icons woff2
-    └── images/                  # Static images (logo, etc.)
+    │   ├── roboto/               # Roboto woff2 files (latin + latin-ext)
+    │   └── material-icons/       # Material Icons woff2
+    └── images/                   # Static images (logo, etc.)
 src/
 ├── fonts.css                     # Local @font-face declarations
-├── config/
-│   └── devices.json              # Device/group configuration
 ├── app/
 │   ├── app.ts                    # Root component (toolbar + sidenav shell)
 │   ├── app.routes.ts             # Route definitions
+│   ├── types/
+│   │   └── devices.ts            # Interfaces: Devices, DeviceGroup, Device
 │   ├── services/
-│   │   └── device-filter.service.ts  # Shared filter state (signal-based)
+│   │   ├── device-filter.service.ts   # Shared filter state (signal-based)
+│   │   └── device-status.service.ts   # HTTP fetch of device config
 │   ├── main-page/                # Main dashboard page
 │   │   ├── main-page.ts
 │   │   ├── main-page.html
@@ -95,7 +100,7 @@ ng test
 
 ## Configuration
 
-Edit [`src/config/devices.json`](src/config/devices.json) to define device groups and devices:
+Edit [`public/assets/config/devices.json`](public/assets/config/devices.json) to define device groups and devices. This file is served as a static asset and fetched via HTTP at runtime, so changes take effect without rebuilding:
 
 ```json
 {

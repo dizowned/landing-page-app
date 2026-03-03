@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { DeviceFilterService } from './services/device-filter.service';
-
 @Component({
   selector: 'app-root',
   imports: [
@@ -18,7 +17,7 @@ import { DeviceFilterService } from './services/device-filter.service';
     MatListModule,
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
+  styleUrls: ['./app.scss'],
 })
 export class App {
   protected readonly title = signal('landing-page-app');
