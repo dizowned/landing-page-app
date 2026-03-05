@@ -1,7 +1,5 @@
 # Landing Page App
 
-<img src="images/landing_page_app_preview.png" alt="preview of home page">
-
 A device dashboard landing page built with **Angular 20** and **Angular Material**. Displays devices organized into groups, each rendered as an expandable card showing its name, status, description, and a quick-launch link.
 
 ## Features
@@ -28,7 +26,7 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 
 ## Project Structure
 
-```
+```text
 public/
 └── assets/
     ├── config/
@@ -119,7 +117,7 @@ Edit [`public/assets/config/devices.json`](public/assets/config/devices.json) to
     }
   ]
 }
-```
+```text
 
 **Group fields:**
 
