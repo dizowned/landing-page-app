@@ -1,3 +1,4 @@
+<app-banner></app-banner>
 <mat-toolbar class="app-toolbar">
   <button mat-icon-button (click)="toggleSidenav()" aria-label="Toggle navigation">
     <mat-icon>menu</mat-icon>
@@ -25,9 +26,12 @@
         </a>
       }
     </mat-nav-list>
+    <app-footer></app-footer>
   </mat-sidenav>
 
   <mat-sidenav-content class="sidenav-content">
     <router-outlet />
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+

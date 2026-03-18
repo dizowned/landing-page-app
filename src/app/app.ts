@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { DeviceFilterService } from './services/device-filter.service';
+import { Footer } from './footer/footer';
+import { Banner } from "./banner/banner";
 @Component({
   selector: 'app-root',
   imports: [
@@ -15,7 +17,9 @@ import { DeviceFilterService } from './services/device-filter.service';
     MatIconModule,
     MatButtonModule,
     MatListModule,
-  ],
+    Banner,
+    Footer
+],
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],
 })
