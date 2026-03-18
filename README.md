@@ -6,6 +6,8 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 
 - **Side navigation with device-type filtering** — A collapsible side nav lists all unique device types extracted from the config. Selecting a type filters the dashboard to show only matching groups; the default "All" filter shows everything.
 - **Hamburger menu toggle** — A toolbar hamburger icon opens and closes the side navigation.
+- **Fixed-position banners** — A banner component renders top and bottom viewport-fixed banners for site-wide announcements.
+- **Sidenav footer** — A footer component pinned to the bottom of the side navigation displays version info, documentation link, email, and chat links.
 - **Branded toolbar** — Displays a logo and welcome title in a sticky Material toolbar.
 - **Device groups** — Devices are organized into named groups with a configurable device type, all driven by a JSON file.
 - **Expandable device cards** — Each device uses a Material accordion panel that reveals a description and action buttons when expanded.
@@ -40,6 +42,8 @@ src/
 ├── app/
 │   ├── app.ts                    # Root component (toolbar + sidenav shell)
 │   ├── app.routes.ts             # Route definitions
+│   ├── banner/                   # Fixed-position top/bottom banner component
+│   ├── footer/                   # Sidenav footer (version, links, copyright)
 │   ├── types/
 │   │   └── devices.ts            # Interfaces: Devices, DeviceGroup, Device
 │   ├── services/
