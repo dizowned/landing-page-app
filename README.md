@@ -1,6 +1,6 @@
 # Landing Page App
 
-A device dashboard landing page built with **Angular 20** and **Angular Material**. Displays devices organized into groups, each rendered as an expandable card showing its name, status, description, and a quick-launch link.
+A device dashboard landing page built with **Angular 21** and **Angular Material**. Displays devices organized into groups, each rendered as an expandable card showing its name, status, description, and a quick-launch link.
 
 ![Application Preview](images/landing_page_app_preview.png)
 
@@ -22,7 +22,7 @@ A device dashboard landing page built with **Angular 20** and **Angular Material
 
 ## Tech Stack
 
-- Angular 20 with standalone components
+- Angular 21 with standalone components
 - Angular Material & CDK
 - Tailwind CSS (PostCSS plugin) + SCSS
 - Express (SSR)
@@ -66,7 +66,7 @@ src/
 ### Prerequisites
 
 - Node.js (v20+)
-- Angular CLI v20
+- Angular CLI v21
 
 ### Install dependencies
 
