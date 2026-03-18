@@ -2,6 +2,8 @@
 
 A device dashboard landing page built with **Angular 20** and **Angular Material**. Displays devices organized into groups, each rendered as an expandable card showing its name, status, description, and a quick-launch link.
 
+![Application Preview](images/landing_page_app_preview.png)
+
 ## Features
 
 - **Side navigation with device-type filtering** — A collapsible side nav lists all unique device types extracted from the config. Selecting a type filters the dashboard to show only matching groups; the default "All" filter shows everything.
