@@ -14,18 +14,23 @@ A device dashboard landing page built with **Angular 21** and **Angular Material
 - **Device groups** — Devices are organized into named groups with a configurable device type, all driven by a JSON file.
 - **Expandable device cards** — Each device uses a Material accordion panel that reveals a description and action buttons when expanded.
 - **Status indicators** — Devices show an active/inactive status with corresponding Material icons.
-- **Server-side rendering** — Supports SSR via Angular SSR and Express.
+- **Zoneless change detection** — Uses Angular 21's `provideZonelessChangeDetection()` for leaner, signal-driven rendering without Zone.js.
+- **Angular Signals** — Reactive state throughout components and services using Angular signals and computed signals.
+- **Server-side rendering** — Supports SSR via Angular SSR and Express with client hydration and event replay.
 - **Runtime device loading** — Device configuration is fetched via HTTP from `assets/config/devices.json` at runtime, with a bundled JSON fallback, allowing updates without rebuilding.
 - **Typed data model** — TypeScript interfaces (`Devices`, `DeviceGroup`, `Device`) ensure type safety across services and components.
 - **Configurable** — Device data is driven by [`public/assets/config/devices.json`](public/assets/config/devices.json), making it easy to add or modify devices and groups without changing code.
 - **Fully self-contained assets** — All fonts (Roboto, Material Icons), images, and config are bundled locally — no external CDN requests at runtime.
+- **Docker-ready** — Includes an nginx-based Dockerfile and config for containerized static deployment.
 
 ## Tech Stack
 
-- Angular 21 with standalone components
-- Angular Material & CDK
+- Angular 21 with standalone components and zoneless change detection
+- Angular Material 3 & CDK (Material Design 3 theming with CSS variables)
+- Angular Signals for reactive state management
 - Tailwind CSS (PostCSS plugin) + SCSS
-- Express (SSR)
+- Express (SSR with client hydration)
+- Docker + nginx (production deployment)
 - Karma & Jasmine (testing)
 
 ## Project Structure
@@ -96,6 +101,8 @@ Build artifacts are written to `dist/`.
 npm run serve:ssr:landing-page-app
 ```
 
+The SSR server listens on port **4000** by default (override with the `PORT` environment variable).
+
 ### Run tests
 
 ```bash
@@ -123,7 +130,7 @@ Edit [`public/assets/config/devices.json`](public/assets/config/devices.json) to
     }
   ]
 }
-```text
+```
 
 **Group fields:**
 
@@ -140,3 +147,15 @@ Edit [`public/assets/config/devices.json`](public/assets/config/devices.json) to
 | `description` | string  | Description shown in the card body   |
 | `url`         | string  | Link opened by the "GO!" button      |
 | `status`      | boolean | `true` = Active, `false` = Inactive  |
+
+## Docker Deployment
+
+Build the app for production first, then build and run the Docker image:
+
+```bash
+ng build
+docker build -f landing-page-app.dockerbuild -t landing-page-app .
+docker run -p 8080:80 landing-page-app
+```
+
+The container serves the static browser build via nginx on port 80. The included [`landing-page-app-nginx.conf`](landing-page-app-nginx.conf) handles SPA routing (`try_files`) and sets 1-year cache headers for static assets.
