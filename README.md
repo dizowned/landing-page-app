@@ -158,4 +158,4 @@ docker build -f landing-page-app.dockerbuild -t landing-page-app .
 docker run -p 8080:80 landing-page-app
 ```
 
-The container serves the static browser build via nginx on port 80. The included [`landing-page-app-nginx.conf`](landing-page-app-nginx.conf) handles SPA routing (`try_files`) and sets 1-year cache headers for static assets.
+The container serves the static browser build via nginx on port 80. The included [`landing-page-app-nginx.conf`](landing-page-app-nginx.conf) uses `try_files` to fall back to the `/Main` route for SPA navigation and sets 1-year cache headers for static assets.
