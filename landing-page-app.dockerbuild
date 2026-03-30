@@ -1,0 +1,16 @@
+FROM nginx:alpine AS production
+
+# Remove default Nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy nginx configuration
+COPY landing-page-app-nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy dist folder contents to nginx default serving directory
+COPY dist/landing-page-app/browser /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
